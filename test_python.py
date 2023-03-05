@@ -59,7 +59,7 @@ if increase > 0:
                 {round(change, 2)}USD, прирост составил {increase}%.')
 else:
     st.markdown(f' За анализируемый период курс криптовалюты снизился в абсолютном значении на \
-                {round(change, 2)}USD, падение составило {increase}%.')
+                {abs(round(change, 2))}USD, падение составило {abs(increase)}%.')
 st.markdown('Ежедневные показатели темпов прироста отражены на диаграмме.')
 st.bar_chart(data=df.sort_values(by='date'), x='date', y='rate_of_increase_%')
 df.date = df.date.apply(lambda x: datetime.strftime(x, '%d-%m-%Y'))
